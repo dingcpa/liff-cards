@@ -175,16 +175,6 @@
         }
       },
       {
-        "type": "button",
-        "style": "link",
-        "height": "sm",
-        "action": {
-          "type": "uri",
-          "label": "📍 開啟 Google 地圖",
-          "uri": "https://www.google.com/maps/search/?api=1&query=%E8%87%BA%E5%8C%97%E5%B8%82%E4%B8%AD%E6%AD%A3%E5%8D%80%E5%BE%90%E5%B7%9E%E8%B7%AF5%E8%99%9F"
-        }
-      },
-      {
         "type": "text",
         "text": "勤美聯合會計師事務所　敬邀",
         "align": "center",
