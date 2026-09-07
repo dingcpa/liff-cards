@@ -76,7 +76,7 @@ function setHint(msg, isErr) {
 async function main() {
   const [initResult, cardResp] = await Promise.allSettled([
     liff.init({ liffId: LIFF_ID }),
-    fetch("./flex_card.json"),
+    fetch("./flex_card.json?v=" + Date.now(), { cache: "no-store" }),
   ]);
   if (cardResp.status === "fulfilled" && cardResp.value.ok) {
     flexBubble = await cardResp.value.json();
@@ -102,7 +102,7 @@ btn.addEventListener("click", async () => {
     const res = await liff.shareTargetPicker(
       [{
         type: "flex",
-        altText: "【開會通知】115年基金會訪查共識會議 9/10（四）下午2時",
+        altText: "【開會通知】115年基金會訪查共識會議 9/10(四)下午2時",
         contents: flexBubble,
       }],
       { isMultiple: true }
