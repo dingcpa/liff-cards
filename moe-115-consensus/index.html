@@ -51,6 +51,9 @@
       </div>
     </div>
     <div class="note">如無法出席，煩請提前告知，謝謝。</div>
+    <div style="text-align:center;padding:6px 0 2px">
+      <a id="calLink" href="#" style="font-size:15px;color:#1d4e89">📅 加入 Google 行事曆</a>
+    </div>
     <div class="foot">勤美聯合會計師事務所　敬邀</div>
   </div>
 
@@ -63,6 +66,15 @@ const LIFF_ID = "2011481732-1BEJVE23";
 const MAP_URL = "https://www.google.com/maps/search/?api=1&query="
   + encodeURIComponent("臺北市中正區徐州路5號");
 document.getElementById("mapLink").href = MAP_URL;
+document.getElementById("calLink").href =
+  "https://calendar.google.com/calendar/render?" + new URLSearchParams({
+    action: "TEMPLATE",
+    text: "115年基金會訪查共識會議",
+    dates: "20260910T140000/20260910T160000",
+    ctz: "Asia/Taipei",
+    location: "中央聯合辦公大樓南棟18樓第20會議室（臺北市中正區徐州路5號）",
+    details: "如無法出席，煩請提前告知，謝謝。—勤美聯合會計師事務所 敬邀",
+  }).toString();
 
 const btn = document.getElementById("shareBtn");
 const hint = document.getElementById("hint");

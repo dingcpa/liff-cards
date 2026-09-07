@@ -170,6 +170,16 @@
         "height": "sm",
         "action": {
           "type": "uri",
+          "label": "📅 加入 Google 行事曆",
+          "uri": "https://calendar.google.com/calendar/render?action=TEMPLATE&text=115%E5%B9%B4%E5%9F%BA%E9%87%91%E6%9C%83%E8%A8%AA%E6%9F%A5%E5%85%B1%E8%AD%98%E6%9C%83%E8%AD%B0&dates=20260910T140000%2F20260910T160000&ctz=Asia%2FTaipei&location=%E4%B8%AD%E5%A4%AE%E8%81%AF%E5%90%88%E8%BE%A6%E5%85%AC%E5%A4%A7%E6%A8%93%E5%8D%97%E6%A3%9F18%E6%A8%93%E7%AC%AC20%E6%9C%83%E8%AD%B0%E5%AE%A4%EF%BC%88%E8%87%BA%E5%8C%97%E5%B8%82%E4%B8%AD%E6%AD%A3%E5%8D%80%E5%BE%90%E5%B7%9E%E8%B7%AF5%E8%99%9F%EF%BC%89&details=%E5%A6%82%E7%84%A1%E6%B3%95%E5%87%BA%E5%B8%AD%EF%BC%8C%E7%85%A9%E8%AB%8B%E6%8F%90%E5%89%8D%E5%91%8A%E7%9F%A5%EF%BC%8C%E8%AC%9D%E8%AC%9D%E3%80%82%E2%80%94%E5%8B%A4%E7%BE%8E%E8%81%AF%E5%90%88%E6%9C%83%E8%A8%88%E5%B8%AB%E4%BA%8B%E5%8B%99%E6%89%80+%E6%95%AC%E9%82%80"
+        }
+      },
+      {
+        "type": "button",
+        "style": "link",
+        "height": "sm",
+        "action": {
+          "type": "uri",
           "label": "📍 開啟 Google 地圖",
           "uri": "https://www.google.com/maps/search/?api=1&query=%E8%87%BA%E5%8C%97%E5%B8%82%E4%B8%AD%E6%AD%A3%E5%8D%80%E5%BE%90%E5%B7%9E%E8%B7%AF5%E8%99%9F"
         }
