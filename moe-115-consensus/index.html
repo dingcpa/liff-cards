@@ -1,0 +1,121 @@
+<!doctype html>
+<html lang="zh-Hant">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<meta name="robots" content="noindex,nofollow">
+<title>115年基金會訪查共識會議</title>
+<style>
+  * { margin:0; padding:0; box-sizing:border-box; }
+  body {
+    font-family:"Microsoft JhengHei","PingFang TC","Noto Sans TC",sans-serif;
+    background:#eef1f5; color:#1c2733; min-height:100vh;
+    display:flex; flex-direction:column; align-items:center;
+    padding:20px 16px calc(24px + env(safe-area-inset-bottom));
+  }
+  .card { width:100%; max-width:420px; background:#fff; border-radius:16px;
+    overflow:hidden; box-shadow:0 4px 18px rgba(18,53,91,.12); }
+  .hero { background:linear-gradient(135deg,#12355b,#1d4e89 70%,#26639f); color:#fff; padding:26px 24px; }
+  .hero .badge { display:inline-block; border:1px solid #e6c96a; color:#e6c96a; border-radius:999px;
+    padding:4px 16px; font-size:14px; font-weight:700; letter-spacing:4px; }
+  .hero h1 { font-size:24px; letter-spacing:1px; margin-top:14px; line-height:1.4; }
+  .info { padding:22px 24px 6px; }
+  .row { display:flex; margin-bottom:16px; }
+  .lbl { flex:0 0 58px; color:#7b8794; font-size:14px; padding-top:3px; }
+  .val { font-size:17px; font-weight:700; line-height:1.5; }
+  .val a { display:inline-block; font-size:14px; font-weight:400; color:#1d4e89; margin-top:4px; }
+  .note { margin:4px 24px 0; border-top:1px solid #e5e9f0; padding:14px 0 4px;
+    color:#8b6f1f; font-size:14px; line-height:1.6; }
+  .foot { text-align:center; color:#7b8794; font-size:12.5px; padding:12px 0 20px; }
+  .share { width:100%; max-width:420px; margin-top:18px; border:none; border-radius:12px;
+    background:#06c755; color:#fff; font-size:18px; font-weight:700; font-family:inherit;
+    padding:16px; letter-spacing:2px; cursor:pointer; }
+  .share:disabled { background:#a8b3bd; }
+  .hint { max-width:420px; margin-top:12px; font-size:13px; color:#7b8794; text-align:center; line-height:1.6; }
+  .hint.err { color:#b3541e; }
+</style>
+</head>
+<body>
+  <div class="card">
+    <div class="hero">
+      <span class="badge">開 會 通 知</span>
+      <h1>115年基金會訪查共識會議</h1>
+    </div>
+    <div class="info">
+      <div class="row"><div class="lbl">日期</div><div class="val">115年9月10日（星期四）</div></div>
+      <div class="row"><div class="lbl">時間</div><div class="val">下午2時</div></div>
+      <div class="row"><div class="lbl">地點</div>
+        <div class="val">中央聯合辦公大樓南棟<br>18樓 第20會議室<br>
+          <a id="mapLink" href="#">臺北市中正區徐州路5號 🗺</a>
+        </div>
+      </div>
+    </div>
+    <div class="note">如無法出席，煩請提前告知，謝謝。</div>
+    <div class="foot">勤美聯合會計師事務所　敬邀</div>
+  </div>
+
+  <button class="share" id="shareBtn" disabled>分享給委員</button>
+  <div class="hint" id="hint">載入中…</div>
+
+<script src="https://static.line-scdn.net/liff/edge/2/sdk.js"></script>
+<script>
+const LIFF_ID = "2010369111-1ko9l2DH";
+const MAP_URL = "https://www.google.com/maps/search/?api=1&query="
+  + encodeURIComponent("臺北市中正區徐州路5號");
+document.getElementById("mapLink").href = MAP_URL;
+
+const btn = document.getElementById("shareBtn");
+const hint = document.getElementById("hint");
+let flexBubble = null;
+
+function setHint(msg, isErr) {
+  hint.textContent = msg;
+  hint.className = "hint" + (isErr ? " err" : "");
+}
+
+async function main() {
+  const [initResult, cardResp] = await Promise.allSettled([
+    liff.init({ liffId: LIFF_ID }),
+    fetch("./flex_card.json"),
+  ]);
+  if (cardResp.status === "fulfilled" && cardResp.value.ok) {
+    flexBubble = await cardResp.value.json();
+  }
+  if (initResult.status === "rejected") {
+    setHint("LIFF 初始化失敗：" + initResult.reason, true);
+    return;
+  }
+  if (!flexBubble) { setHint("卡片內容載入失敗，請重新整理。", true); return; }
+  btn.disabled = false;
+  setHint("按上方按鈕即可選擇要分享的委員或群組。");
+}
+
+btn.addEventListener("click", async () => {
+  try {
+    if (!liff.isInClient() && !liff.isLoggedIn()) { liff.login(); return; }
+    if (!liff.isApiAvailable("shareTargetPicker")) {
+      setHint("此 channel 尚未啟用 Share target picker：請到 LINE Developers Console → " +
+        "LINE Login channel → LIFF 頁籤，打開「Share target picker」後重試。", true);
+      return;
+    }
+    btn.disabled = true;
+    const res = await liff.shareTargetPicker(
+      [{
+        type: "flex",
+        altText: "【開會通知】115年基金會訪查共識會議 9/10（四）下午2時",
+        contents: flexBubble,
+      }],
+      { isMultiple: true }
+    );
+    setHint(res ? "已送出 ✔ 可再按一次分享給其他人。" : "已取消分享。");
+  } catch (e) {
+    setHint("分享失敗：" + (e && e.message ? e.message : e), true);
+  } finally {
+    btn.disabled = false;
+  }
+});
+
+main();
+</script>
+</body>
+</html>
