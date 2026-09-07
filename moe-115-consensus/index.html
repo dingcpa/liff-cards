@@ -111,6 +111,10 @@ btn.addEventListener("click", async () => {
       return;
     }
     btn.disabled = true;
+    try {  // 按分享當下重抓最新卡片，避免頁面開著期間卡片已改版
+      const r = await fetch("./flex_card.json?v=" + Date.now(), { cache: "no-store" });
+      if (r.ok) flexBubble = await r.json();
+    } catch (e) { /* 抓不到就用載入時的版本 */ }
     const res = await liff.shareTargetPicker(
       [{
         type: "flex",
