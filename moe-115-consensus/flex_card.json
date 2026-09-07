@@ -19,10 +19,25 @@
         "paddingEnd": "14px",
         "width": "104px",
         "contents": [
-          { "type": "text", "text": "開 會 通 知", "color": "#E6C96A", "size": "sm", "weight": "bold", "align": "center" }
+          {
+            "type": "text",
+            "text": "開 會 通 知",
+            "color": "#E6C96A",
+            "size": "sm",
+            "weight": "bold",
+            "align": "center"
+          }
         ]
       },
-      { "type": "text", "text": "115年基金會訪查共識會議", "color": "#FFFFFF", "size": "xl", "weight": "bold", "wrap": true, "margin": "lg" }
+      {
+        "type": "text",
+        "text": "115年基金會訪查共識會議",
+        "color": "#FFFFFF",
+        "size": "xl",
+        "weight": "bold",
+        "wrap": true,
+        "margin": "lg"
+      }
     ]
   },
   "body": {
@@ -35,34 +50,82 @@
         "type": "box",
         "layout": "horizontal",
         "contents": [
-          { "type": "text", "text": "日期", "size": "sm", "color": "#7B8794", "flex": 2, "margin": "none" },
-          { "type": "text", "text": "115年9月10日（星期四）", "size": "md", "weight": "bold", "color": "#1C2733", "flex": 6, "wrap": true }
+          {
+            "type": "text",
+            "text": "日期",
+            "size": "md",
+            "color": "#7B8794",
+            "flex": 2,
+            "margin": "none"
+          },
+          {
+            "type": "text",
+            "text": "115年9月10日（星期四）",
+            "size": "lg",
+            "weight": "bold",
+            "color": "#1C2733",
+            "flex": 6,
+            "wrap": true
+          }
         ]
       },
       {
         "type": "box",
         "layout": "horizontal",
         "contents": [
-          { "type": "text", "text": "時間", "size": "sm", "color": "#7B8794", "flex": 2 },
-          { "type": "text", "text": "下午2時", "size": "md", "weight": "bold", "color": "#1C2733", "flex": 6 }
+          {
+            "type": "text",
+            "text": "時間",
+            "size": "md",
+            "color": "#7B8794",
+            "flex": 2
+          },
+          {
+            "type": "text",
+            "text": "下午2時",
+            "size": "lg",
+            "weight": "bold",
+            "color": "#1C2733",
+            "flex": 6
+          }
         ]
       },
       {
         "type": "box",
         "layout": "horizontal",
         "contents": [
-          { "type": "text", "text": "地點", "size": "sm", "color": "#7B8794", "flex": 2 },
+          {
+            "type": "text",
+            "text": "地點",
+            "size": "md",
+            "color": "#7B8794",
+            "flex": 2
+          },
           {
             "type": "box",
             "layout": "vertical",
             "flex": 6,
             "contents": [
-              { "type": "text", "text": "中央聯合辦公大樓南棟", "size": "md", "weight": "bold", "color": "#1C2733", "wrap": true },
-              { "type": "text", "text": "18樓 第20會議室", "size": "md", "weight": "bold", "color": "#1C2733", "wrap": true },
+              {
+                "type": "text",
+                "text": "中央聯合辦公大樓南棟",
+                "size": "lg",
+                "weight": "bold",
+                "color": "#1C2733",
+                "wrap": true
+              },
+              {
+                "type": "text",
+                "text": "18樓 第20會議室",
+                "size": "lg",
+                "weight": "bold",
+                "color": "#1C2733",
+                "wrap": true
+              },
               {
                 "type": "text",
                 "text": "臺北市中正區徐州路5號 🗺",
-                "size": "sm",
+                "size": "md",
                 "color": "#1D4E89",
                 "decoration": "underline",
                 "margin": "sm",
@@ -77,8 +140,19 @@
           }
         ]
       },
-      { "type": "separator", "margin": "lg", "color": "#E5E9F0" },
-      { "type": "text", "text": "如無法出席，煩請提前告知，謝謝。", "size": "sm", "color": "#8B6F1F", "wrap": true, "margin": "md" }
+      {
+        "type": "separator",
+        "margin": "lg",
+        "color": "#E5E9F0"
+      },
+      {
+        "type": "text",
+        "text": "如無法出席，煩請提前告知，謝謝。",
+        "size": "sm",
+        "color": "#8B6F1F",
+        "wrap": true,
+        "margin": "md"
+      }
     ]
   },
   "footer": {
@@ -97,7 +171,14 @@
           "uri": "https://www.google.com/maps/search/?api=1&query=%E8%87%BA%E5%8C%97%E5%B8%82%E4%B8%AD%E6%AD%A3%E5%8D%80%E5%BE%90%E5%B7%9E%E8%B7%AF5%E8%99%9F"
         }
       },
-      { "type": "text", "text": "勤美聯合會計師事務所　敬邀", "align": "center", "size": "xs", "color": "#7B8794", "margin": "md" }
+      {
+        "type": "text",
+        "text": "勤美聯合會計師事務所　敬邀",
+        "align": "center",
+        "size": "xs",
+        "color": "#7B8794",
+        "margin": "md"
+      }
     ]
   }
 }
